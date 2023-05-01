@@ -9,6 +9,7 @@ import { Button } from '../../components/Button';
 import theme from '../../styles/theme';
 import logoImg from '../../assets/logo.png';
 import { Container, Form, Header, Login, Logo } from "./styles";
+import { useNavigation } from '@react-navigation/native';
 
 export const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -16,6 +17,7 @@ export const SignUp = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { SignIn }  = useAuth();
+  const { navigate } = useNavigation();
 
   async function handleSignUp() {
     try {
@@ -81,6 +83,7 @@ export const SignUp = () => {
           text='Ir para login' 
           color='ghost'
           activeOpacity={0.5}
+          onPress={() => navigate('signin')}
         />
       </Login>
 

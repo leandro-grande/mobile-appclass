@@ -32,7 +32,7 @@ export const AuthContextProvider = ({ children }: ProviderProps) => {
         email
       });
   
-      //api.defaults.headers['Authorization'] = `Bearer ${data.token}`
+      api.defaults.headers['Authorization'] = `Bearer ${data.token}`
 
     } catch (error) {
       throw error;
