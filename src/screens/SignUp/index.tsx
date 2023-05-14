@@ -16,7 +16,7 @@ export const SignUp = () => {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const { SignIn }  = useAuth();
+  const { signIn }  = useAuth();
   const { navigate } = useNavigation();
 
   async function handleSignUp() {
@@ -27,7 +27,7 @@ export const SignUp = () => {
         password,
       });
 
-      await SignIn(email, password);
+      await signIn(email, password);
 
     } catch (error) {
       setIsLoading(false);

@@ -12,5 +12,7 @@ export const TextInput = styled.TextInput`
   color: ${({theme}) => theme.COLORS["INPUT-TEXT"]};
   
   padding: 12px 16px;
+  align-self: flex-start;
+  
 
 `

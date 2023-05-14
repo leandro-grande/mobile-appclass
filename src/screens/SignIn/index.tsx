@@ -9,21 +9,20 @@ import theme from '../../styles/theme';
 import logoImg from '../../assets/logo.png';
 import { Container, Form, Header, Login, Logo } from "./styles";
 import { useNavigation } from '@react-navigation/native';
-import { AxiosError } from 'axios';
 
 export const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const { SignIn }  = useAuth();
+  const { signIn }  = useAuth();
   const { navigate } = useNavigation();
 
   async function handleSignIn() {
     try {
       setIsLoading(true);
 
-      await SignIn(email, password);
+      await signIn(email, password);
 
     } catch (error) {
       setIsLoading(false);
