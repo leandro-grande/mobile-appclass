@@ -1,8 +1,9 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { SignUp } from "../screens/SignUp";
-import { Home } from "../screens/Home";
 import { SignIn } from "../screens/SignIn";
 import { ProfileSignUp } from "../screens/ProfileSignUp";
+import { Messages } from "../screens/Messages";
+import { SendMessage } from "../screens/sendMessage";
 
 
 const { Navigator, Screen } = createNativeStackNavigator();
@@ -13,7 +14,7 @@ export const AuthRoutes = () => {
       <Screen name="signin" component={SignIn} />
       <Screen name="signup" component={SignUp} />
       <Screen name="profileSignUp" component={ProfileSignUp} />
-      <Screen name="home" component={Home} />
+      <Screen name="sendMessage" component={SendMessage} />
     </Navigator>
   )
 }

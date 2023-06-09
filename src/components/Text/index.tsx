@@ -1,7 +1,8 @@
 import { ReactNode } from "react"
 import { Texts } from "./styles"
+import { TextProps } from "react-native";
 
-type TextProps = {
+type Props = TextProps & {
   children: ReactNode;
   color?: string;
   size?: string;
@@ -13,7 +14,7 @@ type TextProps = {
   center?: boolean;
 }
 
-export const Text = ({ color, size, font = 'regular', mb, ml, mr, mt, center = false, children }: TextProps) => {
+export const Text = ({ color, size, font = 'regular', mb, ml, mr, mt, center = false, children, ...rest  }: Props) => {
   return (
     <Texts
       color={color}
@@ -24,6 +25,7 @@ export const Text = ({ color, size, font = 'regular', mb, ml, mr, mt, center = f
       ml={ml}
       mr={mr}
       center={center}
+      {...rest}
     >
       {children}
     </Texts>

@@ -8,7 +8,7 @@ type ProviderProps = {
 type User = {
   id: string
   email: string;
-  pessoaId: string | null
+  perfil: string;
 }
 
 type AuthContextData = {
@@ -32,23 +32,27 @@ export const AuthContextProvider = ({ children }: ProviderProps) => {
 
       api.defaults.headers['Authorization'] = `Bearer ${user.token}`;
 
-      console.log(user)
-  
-      setUser({
-        id: user.usuario.id,
-        email: user.usuario.email,
-        pessoaId: user.usuario.pessoaId
-      });
-      
+      if (user.usuario.pessoaId) {
+        const { data: pessoa } = await api.get(`/Pessoas/${user.usuario.pessoaId}`);
+
+        setUser({
+          id: pessoa.id,
+          email: user.usuario.email,
+          perfil: pessoa.pessoaTipo.nome
+        });
+      } else {
+        setUser({
+          id: user.usuario.id,
+          email: user.usuario.email,
+          perfil: ''
+        });
+      }
 
     } catch (error) {
       throw error;
     }
   }
 
-  async function getUser(user_id: string) {
-    
-  }
 
   async function updateUser(pessoaId: string) {
     setUser(state => {

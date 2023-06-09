@@ -5,6 +5,8 @@ export declare global {
       signup: undefined;
       home: undefined;
       profileSignUp: undefined;
+      messages: undefined;
+      sendMessage: undefined;
     }
   }
 }

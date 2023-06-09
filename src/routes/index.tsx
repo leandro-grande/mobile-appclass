@@ -1,20 +1,21 @@
 import { NavigationContainer } from "@react-navigation/native"
 import { AuthRoutes } from "./auth.routes"
 import { useAuth } from "../contexts/useAuth"
-import { Home } from "../screens/Home";
 import { ProfileSignUp } from "../screens/ProfileSignUp";
+import { Messages } from "../screens/Messages";
+import { SendMessage } from "../screens/sendMessage";
 
 
 export const Routes = () => {
 
   const { user } = useAuth();
 
-  const isUserProfileSignUp = user.pessoaId !== null;
-
   return (
     <NavigationContainer>
-      { (user.email && user.pessoaId) ? <Home/> : 
-          !user.email ? <AuthRoutes /> : <ProfileSignUp /> }
+      { !user.email ? <AuthRoutes /> :  
+      (!user.perfil && user.email) 
+        ? <ProfileSignUp /> 
+        : ( user.perfil === 'Aluno' ? <Messages /> : <SendMessage /> ) }
     </NavigationContainer>
   )
 }

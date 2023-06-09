@@ -26,7 +26,7 @@ export function ProfileSignUp() {
 
   const { user, updateUser } = useAuth();
 
-  const data = ['', 'Aluno', 'Professor', 'Coordenador'];
+  const data = ['Perfil', 'Aluno', 'Professor', 'Coordenador'];
 
   const [dia, mes, ano] = date.split('/');
   const newDate = new Date(Number(ano), Number(mes) - 1, Number(dia));
